@@ -1,0 +1,19 @@
+{
+  "name": "pa-common",
+  "version": "1.0.0",
+  "description": "Common classes and interfaces to share between Project Arrhythmia related libraries",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PA-Toolkit/pa-common.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PA-Toolkit/pa-common/issues"
+  },
+  "homepage": "https://github.com/PA-Toolkit/pa-common#readme"
+}
