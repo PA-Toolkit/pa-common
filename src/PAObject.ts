@@ -129,7 +129,7 @@ export default class PAObject implements Serializable {
         if (parent != null && parent.owner != this.owner) {
             throw new Error("Mismatch owner!");
         }
-        this.parentId = parent != null ? parent.parentId : "";
+        this.parentId = parent != null ? parent.id : "";
     }
 
     toString(): string {
