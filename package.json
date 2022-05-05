@@ -2,9 +2,11 @@
   "name": "pa-common",
   "version": "1.0.0",
   "description": "Common classes and interfaces to share between Project Arrhythmia related libraries",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "npm run test"
+    "build": "rollup -c",
+    "test": "node test/test.js",
+    "pretest": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -12,8 +14,15 @@
   },
   "author": "",
   "license": "MIT",
+  "files": [
+    "build/**/*"
+  ],
   "bugs": {
     "url": "https://github.com/PA-Toolkit/pa-common/issues"
   },
-  "homepage": "https://github.com/PA-Toolkit/pa-common#readme"
+  "homepage": "https://github.com/PA-Toolkit/pa-common#readme",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.2",
+    "rollup": "^2.71.1"
+  }
 }
