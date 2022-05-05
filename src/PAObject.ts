@@ -1,6 +1,6 @@
-import {AutoKillType, Shape, ObjectType, SquareOption} from "./Enums";
+import {AutoKillType, Easing, ObjectType, RandomMode, Shape, SquareOption} from "./Enums";
 import KeyframeList from "./KeyframeList";
-import {ColorValue, PositionValue, RotationValue, ScaleValue} from "./Keyframe";
+import {ColorValue, Keyframe, PositionValue, RotationValue, ScaleValue} from "./Keyframe";
 import Serializable from "./Serializable";
 import ObjectOwner from "./ObjectOwner";
 
@@ -264,5 +264,87 @@ export default class PAObject implements Serializable {
                 this.colorKeyframes.fromJson(json.events.col);
             }
         }
+    }
+
+    /**
+     * Pushes a position keyframe into the object's position keyframe array.
+     * @param time The keyframe time
+     * @param x The keyframe's x component
+     * @param y The keyframe's y component
+     * @param easing The keyframe's easing
+     * @param randomMode The keyframe's random mode
+     * @param randomX The keyframe's random x component
+     * @param randomY The keyframe's random y component
+     * @param randomInterval The keyframe's random interval
+     */
+    pushPosition(time: number, x: number, y: number, easing: Easing = Easing.Linear, randomMode?: RandomMode, randomX?: number, randomY?: number, randomInterval?: number) {
+        let kf: Keyframe<PositionValue> = new Keyframe<PositionValue>(() => new PositionValue());
+        kf.time = time;
+        kf.value.x = x;
+        kf.value.y = y;
+        kf.easing = easing;
+        kf.randomMode = randomMode !== undefined ? RandomMode.None : randomMode;
+        kf.randomValue.x = randomX !== undefined ? randomX : 0.0;
+        kf.randomValue.y = randomY !== undefined ? randomY : 0.0;
+        kf.randomInterval = randomInterval !== undefined ? randomInterval : 0.0;
+        this.positionKeyframes.push(kf);
+    }
+
+    /**
+     * Pushes a scale keyframe into the object's scale keyframe array.
+     * @param time The keyframe time
+     * @param x The keyframe's x component
+     * @param y The keyframe's y component
+     * @param easing The keyframe's easing
+     * @param randomMode The keyframe's random mode
+     * @param randomX The keyframe's random x component
+     * @param randomY The keyframe's random y component
+     * @param randomInterval The keyframe's random interval
+     */
+    pushScale(time: number, x: number, y: number, easing: Easing = Easing.Linear, randomMode?: RandomMode, randomX?: number, randomY?: number, randomInterval?: number) {
+        let kf: Keyframe<ScaleValue> = new Keyframe<ScaleValue>(() => new ScaleValue());
+        kf.time = time;
+        kf.value.x = x;
+        kf.value.y = y;
+        kf.easing = easing;
+        kf.randomMode = randomMode !== undefined ? RandomMode.None : randomMode;
+        kf.randomValue.x = randomX !== undefined ? randomX : 0.0;
+        kf.randomValue.y = randomY !== undefined ? randomY : 0.0;
+        kf.randomInterval = randomInterval !== undefined ? randomInterval : 0.0;
+        this.scaleKeyframes.push(kf);
+    }
+
+    /**
+     * Pushes a rotation keyframe into the object's rotation keyframe array.
+     * @param time The keyframe time
+     * @param value The keyframe's value
+     * @param easing The keyframe's easing
+     * @param randomMode The keyframe's random mode
+     * @param randomValue The keyframe's random value
+     * @param randomInterval The keyframe's random interval
+     */
+    pushRotation(time: number, value: number, easing: Easing = Easing.Linear, randomMode?: RandomMode, randomValue?: number, randomInterval?: number) {
+        let kf: Keyframe<RotationValue> = new Keyframe<RotationValue>(() => new RotationValue());
+        kf.time = time;
+        kf.value.value = value;
+        kf.easing = easing;
+        kf.randomMode = randomMode !== undefined ? RandomMode.None : randomMode;
+        kf.randomValue.value = randomValue !== undefined ? randomValue : 0.0;
+        kf.randomInterval = randomInterval !== undefined ? randomInterval : 0.0;
+        this.rotationKeyframes.push(kf);
+    }
+
+    /**
+     * Pushes a color keyframe into the object's color keyframe array.
+     * @param time The keyframe time
+     * @param value The keyframe's value
+     * @param easing The keyframe's easing
+     */
+    pushColor(time: number, value: number, easing: Easing = Easing.Linear) {
+        let kf: Keyframe<ColorValue> = new Keyframe<ColorValue>(() => new ColorValue());
+        kf.time = time;
+        kf.value.value = value;
+        kf.easing = easing;
+        this.colorKeyframes.push(kf);
     }
 }
