@@ -12,6 +12,9 @@
   </a>
 </p>
 
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)](https://forthebadge.com)
+
 > Common classes and interfaces to share between Project Arrhythmia related libraries
 
 ### 🏠 [Homepage](https://github.com/PA-Toolkit/pa-common#readme)
