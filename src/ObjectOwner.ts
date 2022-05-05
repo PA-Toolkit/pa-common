@@ -11,7 +11,7 @@ export default interface ObjectOwner {
 
     /**
      * Gets a Project Arrhythmia object from this object.
-     * @param parentId The object ID.
+     * @param id The object ID.
      */
-    getObject(parentId: string): PAObject;
+    getObject(id: string): PAObject;
 }
