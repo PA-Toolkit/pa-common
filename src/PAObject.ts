@@ -283,7 +283,7 @@ export default class PAObject implements Serializable {
         kf.value.x = x;
         kf.value.y = y;
         kf.easing = easing;
-        kf.randomMode = randomMode !== undefined ? RandomMode.None : randomMode;
+        kf.randomMode = randomMode !== undefined ? randomMode : RandomMode.None;
         kf.randomValue.x = randomX !== undefined ? randomX : 0.0;
         kf.randomValue.y = randomY !== undefined ? randomY : 0.0;
         kf.randomInterval = randomInterval !== undefined ? randomInterval : 0.0;
@@ -307,7 +307,7 @@ export default class PAObject implements Serializable {
         kf.value.x = x;
         kf.value.y = y;
         kf.easing = easing;
-        kf.randomMode = randomMode !== undefined ? RandomMode.None : randomMode;
+        kf.randomMode = randomMode !== undefined ? randomMode : RandomMode.None;
         kf.randomValue.x = randomX !== undefined ? randomX : 0.0;
         kf.randomValue.y = randomY !== undefined ? randomY : 0.0;
         kf.randomInterval = randomInterval !== undefined ? randomInterval : 0.0;
@@ -328,7 +328,7 @@ export default class PAObject implements Serializable {
         kf.time = time;
         kf.value.value = value;
         kf.easing = easing;
-        kf.randomMode = randomMode !== undefined ? RandomMode.None : randomMode;
+        kf.randomMode = randomMode !== undefined ? randomMode : RandomMode.None;
         kf.randomValue.value = randomValue !== undefined ? randomValue : 0.0;
         kf.randomInterval = randomInterval !== undefined ? randomInterval : 0.0;
         this.rotationKeyframes.push(kf);
